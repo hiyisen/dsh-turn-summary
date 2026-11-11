@@ -47,9 +47,9 @@ function parsePatch(text) {
   return { insert: inserts }
 }
 
-test('package.json 声明包名 dsh-turn-summary、版本 1.0.0', () => {
+test('package.json 声明包名 dsh-turn-summary、版本 1.0.1', () => {
   assert.equal(packageJson.name, 'dsh-turn-summary')
-  assert.equal(packageJson.version, '1.0.0')
+  assert.equal(packageJson.version, '1.0.1')
   assert.equal(packageJson.type, 'module')
   assert.equal(packageJson.author, 'hiyisen')
   assert.equal(packageJson.license, 'MIT')
@@ -96,6 +96,7 @@ test('package.json 的发布边界与防误发标记完整', () => {
     'icon.svg',
     'README.md',
     'README.en.md',
+    'CHANGELOG.md',
     'LICENSE',
     'package.json',
   ])
