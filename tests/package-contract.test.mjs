@@ -57,6 +57,8 @@ test('package.json 声明包名 dsh-turn-summary、版本 1.0.1', () => {
 
 test('发布完整性：MIT 许可证与权威规格文档存在', () => {
   assert.ok(existsSync(join(PACKAGE_ROOT, 'LICENSE')))
+  assert.ok(existsSync(join(PACKAGE_ROOT, 'CHANGELOG.md')))
+  assert.match(readFileSync(join(PACKAGE_ROOT, 'CHANGELOG.md'), 'utf8'), /^## 1\.0\.1/m)
   assert.ok(existsSync(join(PACKAGE_ROOT, 'docs', 'dsh-turn-summary 原理与业务流程.md')))
   assert.match(
     readFileSync(join(PACKAGE_ROOT, 'README.md'), 'utf8'),

@@ -62,9 +62,11 @@
 ### 推荐：自建插件市场
 
 1. DSH 设置 → 插件市场，添加索引地址：
-   `https://cdn.jsdelivr.net/gh/hiyisen/dsh-plugin@799580bc334d85fd9c592ec2573c885b0ea725e9/market/index.json`
+   `https://cdn.jsdelivr.net/gh/hiyisen/dsh-plugin@07dc0929531fd96c1a09ef6d0e254e26a642082a/market/index.json`
 2. 在市场里找到「本轮摘要」→ 安装
 3. 重启 DSH；此后每轮回复下方出现该行
+
+> 如果此前添加的是旧的固定 commit 地址，需要重新添加上面的索引地址，才能看到并升级到 1.0.1。固定 commit 的索引不会随 `dsh-plugin` 的后续提交自动变化。
 
 ### 手动安装（兜底方式）
 

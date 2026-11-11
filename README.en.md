@@ -62,9 +62,11 @@ Therefore:
 ### Recommended: the self-hosted plugin market
 
 1. DSH Settings → Plugin Market, add the index URL:
-   `https://cdn.jsdelivr.net/gh/hiyisen/dsh-plugin@799580bc334d85fd9c592ec2573c885b0ea725e9/market/index.json`
+   `https://cdn.jsdelivr.net/gh/hiyisen/dsh-plugin@07dc0929531fd96c1a09ef6d0e254e26a642082a/market/index.json`
 2. Find “Turn Summary” in the market → Install
 3. Restart DSH; the line appears under every completed reply from then on
+
+> If you previously added an older commit-pinned URL, add the URL above again to receive version 1.0.1. A commit-pinned index does not change when `dsh-plugin` receives later commits.
 
 ### Manual install (fallback)
 
