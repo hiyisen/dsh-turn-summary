@@ -62,7 +62,7 @@
 ### 推荐：自建插件市场
 
 1. DSH 设置 → 插件市场，添加索引地址：
-   `https://cdn.jsdelivr.net/gh/hiyisen/dsh-plugin@main/market/index.json`
+   `https://cdn.jsdelivr.net/gh/hiyisen/dsh-plugin@799580bc334d85fd9c592ec2573c885b0ea725e9/market/index.json`
 2. 在市场里找到「本轮摘要」→ 安装
 3. 重启 DSH；此后每轮回复下方出现该行
 
@@ -108,3 +108,4 @@ node --test
 ## License
 
 MIT
+

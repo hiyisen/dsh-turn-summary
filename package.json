@@ -17,6 +17,11 @@
     }
   },
   "engines": { "dsh": ">=0.2.2-rc.1 <0.3.0" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hiyisen/dsh-turn-summary.git"
+  },
   "author": "hiyisen",
   "license": "MIT"
 }
+

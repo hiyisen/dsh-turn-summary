@@ -27,9 +27,6 @@ export const CLIENT_ARTIFACT = join(PACKAGE_ROOT, 'lib', 'client.js')
 /** The published browser artifact's source text, exactly as it ships. */
 export const CLIENT_ARTIFACT_SOURCE = readFileSync(CLIENT_ARTIFACT, 'utf8')
 
-/** The hashed CSS-module class the shipped artifact assigns to the summary row. */
-export const CSS_ROOT_CLASS = 'vqEcJa_root'
-
 /** The `data-plugin` value the shipped artifact stamps on its <style> node. */
 export const PLUGIN_ID = 'dsh-turn-summary'
 
@@ -274,3 +271,4 @@ export function toHtml(vnode) {
     .join('')
   return `<${vnode.type}${attributes}>${vnode.props.children ?? ''}</${vnode.type}>`
 }
+

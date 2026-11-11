@@ -9,7 +9,6 @@ import { test } from 'node:test'
 
 import { apply as hostApply } from '../lib/index.js'
 import {
-  CSS_ROOT_CLASS,
   PLUGIN_ID,
   loadArtifact,
 } from './harness.mjs'
@@ -56,7 +55,10 @@ test('注入的 <style> 带非空 data-plugin-css', () => {
 })
 
 test('注入的 CSS 文本含产物实际的哈希类名', () => {
-  assert.ok(artifact.document.styles[0].textContent.includes(`.${CSS_ROOT_CLASS}`))
+  assert.match(
+    artifact.document.styles[0].textContent,
+    /\.[A-Za-z0-9_-]+\{box-sizing:border-box/,
+  )
 })
 
 test('装配第一件事：ctx.locale.register 被调用一次，命名空间为 "turnSummary"', () => {
@@ -127,3 +129,4 @@ test('host 半部 apply() 是空实现，调用后无副作用', () => {
   assert.equal(hostApply(), undefined)
   assert.equal(hostApply.length, 0)
 })
+

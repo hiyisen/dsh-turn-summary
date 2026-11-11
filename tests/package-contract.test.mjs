@@ -55,6 +55,19 @@ test('package.json 声明包名 dsh-turn-summary、版本 1.0.0', () => {
   assert.equal(packageJson.license, 'MIT')
 })
 
+test('发布完整性：MIT 许可证与权威规格文档存在', () => {
+  assert.ok(existsSync(join(PACKAGE_ROOT, 'LICENSE')))
+  assert.ok(existsSync(join(PACKAGE_ROOT, 'docs', 'dsh-turn-summary 原理与业务流程.md')))
+  assert.match(
+    readFileSync(join(PACKAGE_ROOT, 'README.md'), 'utf8'),
+    /docs\/dsh-turn-summary%20原理与业务流程\.md/,
+  )
+  assert.match(
+    readFileSync(join(PACKAGE_ROOT, 'README.en.md'), 'utf8'),
+    /docs\/dsh-turn-summary%20原理与业务流程\.md/,
+  )
+})
+
 test('package.json 的 exports 指向真实存在的文件', () => {
   assert.equal(packageJson.exports['.'].default, './lib/index.js')
   assert.equal(packageJson.exports['./client'].default, './lib/client.js')
@@ -86,6 +99,20 @@ test('dsh.bundle 指向 cordis.patch.yml 且默认列出', () => {
   assert.equal(packageJson.dsh.bundle.patch, './cordis.patch.yml')
   assert.equal(packageJson.dsh.bundle.listedByDefault, true)
   assert.equal(packageJson.engines.dsh, '>=0.2.2-rc.1 <0.3.0')
+})
+
+test('package.json 指向当前 GitHub 仓库', () => {
+  assert.deepEqual(packageJson.repository, {
+    type: 'git',
+    url: 'https://github.com/hiyisen/dsh-turn-summary.git',
+  })
+})
+
+test('CI 不含空转漂移守卫且 Action 引用固定到 commit', () => {
+  const workflow = readFileSync(join(PACKAGE_ROOT, '.github', 'workflows', 'ci.yml'), 'utf8')
+  assert.doesNotMatch(workflow, /git diff --exit-code/)
+  assert.match(workflow, /actions\/checkout@[0-9a-f]{40}/)
+  assert.match(workflow, /actions\/setup-node@[0-9a-f]{40}/)
 })
 
 test('cordis.patch.yml 存在且能解析出 insert 行', () => {
@@ -219,3 +246,4 @@ test('源码快照仍保留 foldTurnSummaryWindow：src/ 是上游完整源码�
   const map = JSON.parse(readFileSync(join(PACKAGE_ROOT, 'lib', 'client.js.map'), 'utf8'))
   assert.ok(map.sourcesContent.join('\n').includes('foldTurnSummaryWindow'))
 })
+

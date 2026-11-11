@@ -62,7 +62,7 @@ Therefore:
 ### Recommended: the self-hosted plugin market
 
 1. DSH Settings → Plugin Market, add the index URL:
-   `https://cdn.jsdelivr.net/gh/hiyisen/dsh-plugin@main/market/index.json`
+   `https://cdn.jsdelivr.net/gh/hiyisen/dsh-plugin@799580bc334d85fd9c592ec2573c885b0ea725e9/market/index.json`
 2. Find “Turn Summary” in the market → Install
 3. Restart DSH; the line appears under every completed reply from then on
 
@@ -108,3 +108,4 @@ The suite drives the **published `lib/client.js`** itself (fake `window.__Module
 ## License
 
 MIT
+
