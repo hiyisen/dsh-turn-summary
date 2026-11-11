@@ -60,6 +60,10 @@ test('发布完整性：MIT 许可证与权威规格文档存在', () => {
   assert.ok(existsSync(join(PACKAGE_ROOT, 'CHANGELOG.md')))
   assert.match(readFileSync(join(PACKAGE_ROOT, 'CHANGELOG.md'), 'utf8'), /^## 1\.0\.1/m)
   assert.ok(existsSync(join(PACKAGE_ROOT, 'docs', 'dsh-turn-summary 原理与业务流程.md')))
+  const releaseRecord = readFileSync(join(PACKAGE_ROOT, 'docs', '版本发布记录.md'), 'utf8')
+  assert.match(releaseRecord, /^## 1\.0\.1/m)
+  assert.match(releaseRecord, /97cdde32afc0fa566b0b238fa58057b9333d7add/)
+  assert.match(releaseRecord, /07dc0929531fd96c1a09ef6d0e254e26a642082a/)
   assert.match(
     readFileSync(join(PACKAGE_ROOT, 'README.md'), 'utf8'),
     /docs\/dsh-turn-summary%20原理与业务流程\.md/,
