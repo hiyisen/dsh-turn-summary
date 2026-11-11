@@ -7,13 +7,30 @@
   "exports": {
     ".": { "default": "./lib/index.js" },
     "./client": { "default": "./lib/client.js" },
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
     "./package.json": "./package.json"
   },
+  "files": [
+    "cordis.patch.yml",
+    "lib",
+    "locale",
+    "src",
+    "tests",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "private": true,
   "dsh": {
     "bundle": { "patch": "./cordis.patch.yml", "listedByDefault": true },
     "client": {
       "inject": ["@deepseek-ai/dsh-client-locale", "@deepseek-ai/dsh-client-ui-conversation", "@deepseek-ai/dsh-client-ui-renderer", "@deepseek-ai/dsh-client-ui-chat"],
-      "platform": "web"
+      "platform": "web",
+      "immediately": true
     }
   },
   "engines": { "dsh": ">=0.2.2-rc.1 <0.3.0" },

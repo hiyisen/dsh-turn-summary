@@ -66,7 +66,9 @@ Therefore:
 2. Find “Turn Summary” in the market → Install
 3. Restart DSH; the line appears under every completed reply from then on
 
-### Manual install
+### Manual install (fallback)
+
+Prefer the plugin market or DSH's “Add plugin” flow above. Use the steps below only when the market is unavailable or when developing locally; automated installation should use the plugin manager instead of editing the profile directly.
 
 ```bash
 # Copy this repository to ~/.dsh/profiles/desktop/dsh-turn-summary/ or clone it beside the profile.

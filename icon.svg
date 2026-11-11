@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Turn summary</title>
+  <desc id="desc">A conversation turn folded into a concise summary</desc>
+  <rect width="64" height="64" rx="16" fill="#2563eb"/>
+  <path d="M17 20h30M17 29h22M17 38h15" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5"/>
+  <path d="m39 43 5 5 9-10" fill="none" stroke="#bfdbfe" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+</svg>

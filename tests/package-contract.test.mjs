@@ -71,22 +71,39 @@ test('发布完整性：MIT 许可证与权威规格文档存在', () => {
 test('package.json 的 exports 指向真实存在的文件', () => {
   assert.equal(packageJson.exports['.'].default, './lib/index.js')
   assert.equal(packageJson.exports['./client'].default, './lib/client.js')
+  assert.equal(packageJson.exports['./locale/*.json'], './locale/*.json')
+  assert.equal(packageJson.exports['./icon'], './icon.svg')
   assert.equal(packageJson.exports['./package.json'], './package.json')
   assert.ok(existsSync(join(PACKAGE_ROOT, 'lib', 'index.js')))
   assert.ok(existsSync(join(PACKAGE_ROOT, 'lib', 'client.js')))
   assert.ok(existsSync(join(PACKAGE_ROOT, 'lib', 'client.js.map')))
+  assert.ok(existsSync(join(PACKAGE_ROOT, 'icon.svg')))
 })
 
-test('package.json 无 types / files / devDependencies / scripts 字段', () => {
+test('package.json 的发布边界与防误发标记完整', () => {
   assert.equal(packageJson.types, undefined)
-  assert.equal(packageJson.files, undefined)
   assert.equal(packageJson.devDependencies, undefined)
   assert.equal(packageJson.scripts, undefined)
   assert.equal(packageJson.dependencies, undefined)
+  assert.equal(packageJson.private, true)
+  assert.deepEqual(packageJson.files, [
+    'cordis.patch.yml',
+    'lib',
+    'locale',
+    'src',
+    'tests',
+    'docs',
+    'icon.svg',
+    'README.md',
+    'README.en.md',
+    'LICENSE',
+    'package.json',
+  ])
 })
 
 test('dsh.client 声明 platform=web 且注入四个客户端包行', () => {
   assert.equal(packageJson.dsh.client.platform, 'web')
+  assert.equal(packageJson.dsh.client.immediately, true)
   assert.deepEqual(packageJson.dsh.client.inject, [
     '@deepseek-ai/dsh-client-locale',
     '@deepseek-ai/dsh-client-ui-conversation',
